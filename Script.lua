@@ -1,4 +1,5 @@
 ------ UI Library ------
+local Exploit = FLUXUS_LOADED and "Fluxus V6" or KRNL_LOADED and "KRNL" or XPROTECT and "Synapse X"
 local Lib = loadstring(game:HttpGet("https://pastebin.com/raw/BbxzJKTw"))()
 
 ------ Windows ------
@@ -10,10 +11,14 @@ local a = UI:Category("Home")
 
 local a1 = a:Sector("Updates")
 local a2 = a:Sector("Version")
+local a3 = a:Sector("Exploit")
 
 a1:Cheat("Label", "New GUI")
+a1:Cheat("Label", "Added check exploit (not every exploit)")
 
-a2:Cheat("Label", "1.4.9a")
+a2:Cheat("Label", "1.5.3a")
+
+a3:Cheat("Label", "You are now using ".. Exploit)
 
 ------ Main ------
 local b = UI:Category("Main")
