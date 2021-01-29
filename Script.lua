@@ -1,29 +1,40 @@
 ------ UI Library ------
-local UI = loadstring(game:HttpGet("https://raw.githubusercontent.com/AbstractPoo/Main/AbstractUI/AbstractUI"))()
+local Lib = loadstring(game:HttpGet("https://pastebin.com/raw/BbxzJKTw"))()
 
------- UI Locals ------
-local a = UI:Create("Prtty much evry gam brdr evr", UDim2.new(0,290,0,515))
+------ Windows ------
+local UI = Lib.new(true)
+UI.ChangeToggleKey(Enum.KeyCode.RightControl)
 
------- Credits ------
-a:Divider("v1.1.9")
-a:Divider("Created by Boblox#4481")
-a:Divider("UI Library by AbstractPoo")
+------ Home ------
+local a = UI:Category("Home")
 
---[[------ LocalPlayer ------
-a:Divider("LocalPlayer")
+local a1 = a:Sector("Updates")
+local a2 = a:Sector("Version")
 
-a:Slider("Speed", "Player walk speed", 0, 120, 16, function(value)
-   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
-end)
+a1:Cheat("Label", "New GUI")
 
-a:Slider("Jump Power", "Player jump power", 0, 110, 50, function(value)
-   game.Players.LocalPlayer.Character.Humanoid.JumpPower = value
-end)]]
+a2:Cheat("Label", "1.4.9a")
 
 ------ Main ------
-a:Divider("Main")
+local b = UI:Category("Main")
 
-a:Button("Hitbox expander", "Just a simple hitbox expander", function()
+local b1 = b:Sector("Player")
+local b2 = b:Sector("Autofarm")
+local b3 = b:Sector("Misc")
+
+b1:Cheat("Button", "Rejoin", function()
+   game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
+end)
+
+b1:Cheat("Slider", "Walkspeed", function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+end, {min = 16, max = 150, suffix = " speed"})
+
+b1:Cheat("Slider", "Jumppower", function(Value)
+   game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+end, {min = 50, max = 160, suffix = " jump power"})
+
+b1:Cheat("Button", "Simple hitbox expander", function()
    _G.HeadSize = 8
    _G.TorsoSize = 8
    _G.LeftArmSize = 8
@@ -73,7 +84,7 @@ a:Button("Hitbox expander", "Just a simple hitbox expander", function()
    )
 end)
 
-a:Button("Infinite Stamina", "Makes you have infinite stamina", function()
+b3:Cheat("Button", "Infinite Stamina", function()
    game.Players.LocalPlayer.Character.Stamina.Value = math.huge
 
    local guiService = game:GetService("StarterGui")
@@ -88,17 +99,7 @@ a:Button("Infinite Stamina", "Makes you have infinite stamina", function()
 })
 end)
 
-a:Button("Claim Treasure", "", function()
-   local a = game.Players.LocalPlayer
-   local b = a.Character
-
-   local x = 432.064392
-   local y = 6.19999981
-   local z = -930.866882
-   b:MoveTo(Vector3.new(x, y, z))
-end)
-
-a:Button("Get Fake Passport", "", function()
+b3:Cheat("Button", "Get Fake Passport", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -114,7 +115,7 @@ a:Button("Get Fake Passport", "", function()
    end
 end)
 
-a:Button("Get Real Passport", "Requires 5 coins", function()
+b3:Cheat("Button", "Get Real Passport (5 coins)", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -130,26 +131,22 @@ a:Button("Get Real Passport", "Requires 5 coins", function()
    end
 end)
 
-a:Button("Autofarm Bread", "", function()
+b3:Cheat("Button", "Claim Treasure", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
-   local x = -268.265839
-   local y = 7.00021362
-   local z = -323.770355
+   local x = 432.064392
+   local y = 6.19999981
+   local z = -930.866882
    b:MoveTo(Vector3.new(x, y, z))
-   wait(1)
-   for _,v in pairs(game.Workspace.Gameplay.DoughStation.Part:GetDescendants()) do
-      if v:IsA("ProximityPrompt") then
-         fireproximityprompt(v)
-      end
-   end
 end)
 
------- Map ------
-a:Divider("Map")
+------ Teleport ------
+local c = UI:Category("Teleport")
 
-a:Button("Brick God", "", function()
+local c1 = c:Sector("Map")
+
+c1:Cheat("Button", "Brick God", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -159,7 +156,7 @@ a:Button("Brick God", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Mainland", "", function()
+c1:Cheat("Button", "Mainland", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -169,7 +166,7 @@ a:Button("Mainland", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Checkpoint 1", "", function()
+c1:Cheat("Button", "Checkpoint 1", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -179,7 +176,7 @@ a:Button("Checkpoint 1", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Checkpoint 2", "", function()
+c1:Cheat("Button", "Checkpoint 2", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -189,7 +186,7 @@ a:Button("Checkpoint 2", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Evil Brick God", "", function()
+c1:Cheat("Button", "Evil Brick God", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -199,7 +196,7 @@ a:Button("Evil Brick God", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Viking Isle", "", function()
+c1:Cheat("Button", "Viking Isle", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -209,7 +206,7 @@ a:Button("Viking Isle", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Raider Isle room", "", function()
+c1:Cheat("Button", "Raider Isle room", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -219,7 +216,7 @@ a:Button("Raider Isle room", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Sorcerer", "", function()
+c1:Cheat("Button", "Sorcerer", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -229,7 +226,7 @@ a:Button("Sorcerer", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Witch", "", function()
+c1:Cheat("Button", "Witch", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -239,7 +236,7 @@ a:Button("Witch", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Noob King castle", "", function()
+c1:Cheat("Button", "Noob King castle", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -249,7 +246,7 @@ a:Button("Noob King castle", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Kings Throne", "At Noob King castle", function()
+c1:Cheat("Button", "Kings Throne", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -259,7 +256,7 @@ a:Button("Kings Throne", "At Noob King castle", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Guardian Isle", "", function()
+c1:Cheat("Button", "Guardian Isle", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -269,7 +266,7 @@ a:Button("Guardian Isle", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("Treasure Island", "", function()
+c1:Cheat("Button", "Treasure Island", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -279,7 +276,7 @@ a:Button("Treasure Island", "", function()
    b:MoveTo(Vector3.new(x, y, z))
 end)
 
-a:Button("VC Chamber", "", function()
+c1:Cheat("Button", "VC Chamber", function()
    local a = game.Players.LocalPlayer
    local b = a.Character
 
@@ -287,4 +284,22 @@ a:Button("VC Chamber", "", function()
    local y = 306.000061
    local z = -678.037476
    b:MoveTo(Vector3.new(x, y, z))
+end)
+
+------ Credits ------
+local z = UI:Category("Credits")
+
+local z1 = z:Sector("Script Creator")
+local z2 = z:Sector("UI Library Creator")
+local z3 = z:Sector("GUI")
+
+z1:Cheat("Label", "Boblox#4481 @ discord")
+z1:Cheat("Label", "Stupid Json @ v3rmillion")
+
+z2:Cheat("Label", "deto#1153 @ discord")
+z2:Cheat("Label", "zeto @ v3rmillion")
+
+z3:Cheat("Label", "Press RightCtrl to close GUI")
+z3:Cheat("Button", "Destroy GUI", function()
+   game:GetService("CoreGui"):FindFirstChild("FinityUI"):Destroy()
 end)
