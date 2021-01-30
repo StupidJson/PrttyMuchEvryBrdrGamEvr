@@ -1,5 +1,5 @@
 ------ UI Library ------
-local Exploit = FLUXUS_LOADED and "Fluxus V6" or KRNL_LOADED and "KRNL" or XPROTECT and "Synapse X"
+local Exploit = FLUXUS_LOADED and "Fluxus V6" or KRNL_LOADED and "KRNL" or XPROTECT and not syn_checkcaller and "SirHurt" or syn and "Synapse X"
 local Lib = loadstring(game:HttpGet("https://pastebin.com/raw/BbxzJKTw"))()
 
 ------ Windows ------
@@ -40,12 +40,12 @@ b1:Cheat("Slider", "Jumppower", function(Value)
 end, {min = 50, max = 160, suffix = " jump power"})
 
 b1:Cheat("Button", "Simple hitbox expander", function()
-   _G.HeadSize = 8
-   _G.TorsoSize = 8
-   _G.LeftArmSize = 8
-   _G.RightArmSize = 8
-   _G.LeftLeg = 8
-   _G.RightLeg = 8
+   _G.HeadSize = 7
+   _G.TorsoSize = 7
+   _G.LeftArmSize = 7
+   _G.RightArmSize = 7
+   _G.LeftLeg = 7
+   _G.RightLeg = 7
    _G.Disabled = true
 
    game:GetService("RunService").RenderStepped:Connect(
